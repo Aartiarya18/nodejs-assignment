@@ -132,7 +132,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
  * POST /
  * Admin - Create New Post
 */
-router.post('/add-post', authMiddleware, async (req, res) => {
+router.post('/add-post', authMiddleware, upload.single('blogImage'), async (req, res) => {
   try {
     try {
       const newPost = new Post({
