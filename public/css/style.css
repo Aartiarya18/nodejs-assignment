@@ -20,10 +20,21 @@ body {
   margin: 0;
 }
 
-a { color: var(--black); }
-h1 { font-size: var(--font-size-xl); }
-h2 { font-size: var(--font-size-lg); }
-h3 { font-size: var(--font-size-md); }
+a {
+  color: var(--black);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
 
 input[type="text"],
 input[type="email"],
@@ -38,17 +49,17 @@ textarea {
   width: 100%;
   padding: 0.7rem 0.75rem;
   margin-bottom: 1rem;
-  border:1px solid var(--black);
+  border: 1px solid var(--black);
   background: #fff;
 }
 
 .btn {
   background-color: var(--black);
   border: none;
-  color: white; 
+  color: white;
   padding: 16px 32px;
   text-decoration: none;
-  margin: 4px 2px; 
+  margin: 4px 2px;
   cursor: pointer;
 }
 
@@ -234,7 +245,7 @@ img {
   display: inline-block;
 }
 
-.admin-post-controls .btn  {
+.admin-post-controls .btn {
   display: inline-block;
   background-color: var(--black);
   color: var(--gray-light);
@@ -263,28 +274,69 @@ img {
   color: var(--black);
 }
 
-.add-post-form, .edit-post-form{
-  display:grid;
-  gap:1rem;
+.add-post-form,
+.edit-post-form {
+  display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-  "title image"
-  "content content";
-  margin-bottom:2rem;
+  grid-template-areas:
+    "title image"
+    "content content";
+  margin-bottom: 2rem;
 }
-.post-title{
+
+.post-title {
   grid-area: title;
 }
 
-.post-image{
-  grid-area:image;
+.post-image {
+  grid-area: image;
 }
 
-.post-content{
-  grid-area:content;
+.post-content {
+  grid-area: content;
 }
 
-.form-image i{
+.form-image i {
   font-size: small;
   font-weight: 400;
+}
+
+.dashboard {
+  display: flex;
+  gap: 2pc;
+}
+
+.profile-pic {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  background: var(--gray-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .left-side {
+  width: 30%;
+}
+
+.dashboard .right-side {
+  width: 100%;
+}
+
+@media(max-width:800px) {
+  .dashboard {
+    display: block;
+    gap: 0pc;
+  }
+
+  .dashboard .left-side {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .dashboard .right-side {
+    width: 100%;
+  }
 }

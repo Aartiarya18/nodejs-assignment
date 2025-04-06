@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+
 const connectDB = require('./server/config/db');
 const { isActiveRoute } = require('./server/helpers/routeHelpers');
 
@@ -23,7 +24,7 @@ app.use(methodOverride('_method'));
 
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'adfjhlakjhdlkjgfhdafkj',
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({

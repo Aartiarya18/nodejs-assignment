@@ -1,0 +1,18 @@
+<h3>Register</h3>
+
+<form action="/register" method="POST" enctype="multipart/form-data">
+
+  <label for="username"><b>Username</b></label>
+  <input type="text" placeholder="Enter Username" name="username" required>
+
+  <label for="password"><b>Password</b></label>
+  <input type="password" placeholder="Enter Password" name="password" required>
+
+  <label for="profileImage"><b>Profile Image</b></label>
+  <input type="file" name="profileImage" accept="image/*">
+
+  <input type="submit" value="Register" class="btn">
+
+</form>
+
+<p>Already have an account? <a href="/admin">Sign In</a></p>

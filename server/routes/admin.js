@@ -38,8 +38,7 @@ const authMiddleware = (req, res, next ) => {
 router.get('/admin', async (req, res) => {
   try {
     const locals = {
-      title: "Admin",
-      description: "Simple Blog created with NodeJs, Express & MongoDb."
+      title: "Admin"
     }
 
     res.render('admin/index', { locals, layout: adminLayout });
@@ -91,9 +90,11 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     }
 
     const data = await Post.find();
+    const user = await User.findById(req.userId); 
     res.render('admin/dashboard', {
       locals,
       data,
+      user,
       layout: adminLayout
     });
 
@@ -157,6 +158,7 @@ router.post('/add-post', authMiddleware, upload.single('blogImage'), async (req,
  * GET /
  * Admin - Create New Post
 */
+
 router.get('/edit-post/:id', authMiddleware, async (req, res) => {
   try {
 
@@ -184,16 +186,22 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
  * PUT /
  * Admin - Create New Post
 */
-router.put('/edit-post/:id', authMiddleware, async (req, res) => {
+router.put('/edit-post/:id', authMiddleware, upload.single('blogImage'), async (req, res) => {
   try {
 
-    await Post.findByIdAndUpdate(req.params.id, {
+    const updateData = {
       title: req.body.title,
       body: req.body.body,
       updatedAt: Date.now()
-    });
+    };
 
-    res.redirect(`/edit-post/${req.params.id}`);
+    if (req.file) {
+      updateData.image = `/uploads/${req.file.filename}`;
+    }
+
+    await Post.findByIdAndUpdate(req.params.id, updateData);
+
+    res.redirect('/dashboard');
 
   } catch (error) {
     console.log(error);
@@ -201,6 +209,17 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 
 });
 
+
+router.get('/register', async (req, res) => {
+  try {
+    const locals = {
+      title: "Register"
+    };
+    res.render('admin/register', { locals, layout: adminLayout });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 /**
@@ -210,7 +229,7 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 router.post('/register', upload.single('profileImage'), async (req, res) => {
   try {
     const { username, password } = req.body;
-    const profileImagePath=req.file?'/uploads'+ req.file.filename : '';
+    const profileImagePath=req.file ? `/uploads/${req.file.filename}` : '';
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
