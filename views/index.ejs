@@ -1,6 +1,10 @@
 <section class="articles">
-  <h2 class="articles__heading">Latest Posts- By Aarti</h2>
+  <h2 class="articles__heading">Latest Posts</h2>
 
+  <% if (data.length===0) { %>
+   <p class="no-post">There is no Post uploaded yet.</p>
+  <% } else { %>
+   
   <ul class="article-ul">
     <% data.forEach(post => { %>
       <li>
@@ -11,7 +15,7 @@
       </li>
     <% }) %>
   </ul>
-
+  <% } %>
 
   <% if (nextPage !== null) { %>
     <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>

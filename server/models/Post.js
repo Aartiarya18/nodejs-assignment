@@ -12,7 +12,7 @@ const PostSchema = new Schema({
   },
   image: {
     type: String,
-    required: false
+    default:''
   },
   createdAt: {
     type: Date,
