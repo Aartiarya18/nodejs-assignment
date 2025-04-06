@@ -11,11 +11,6 @@
       <a href="/post/<%= post._id %>">
         <%= post.title %> &nearr;
       </a>
-      <% if (post.image) { %>
-        <div style="margin: 10px 0;">
-          <img src="<%= post.image %>" width="150" height="auto" style="border-radius: 8px;" />
-        </div>
-      <% } %>
       <div class="admin-post-controls">
         <a href="/edit-post/<%= post._id %>" class="btn">Edit</a>
 

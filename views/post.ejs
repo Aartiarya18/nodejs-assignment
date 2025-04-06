@@ -1,2 +1,7 @@
+<% if (data.image) { %>
+    <div style="margin: 10px 0;">
+      <img src="<%= data.image %>" width="150" height="auto" style="border-radius: 8px;" />
+    </div>
+  <% } %>
 <h1><%= data.title %></h1>
 <article class="article"><%= data.body %></article>

@@ -8,13 +8,22 @@
 
 </div>
 
-<form action="/edit-post/<%= data._id %>?_method=PUT" method="POST">
+<form action="/edit-post/<%= data._id %>?_method=PUT" method="POST" enctype="multipart/form-data"
+  class="edit-post-form">
 
-  <label for="title"><b>Title</b></label>
-  <input type="text" placeholder="Post Title" name="title" value="<%= data.title %>">
+  <div class="post-title">
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Post Title" name="title" value="<%= data.title %>">
+  </div>
 
-  <label for="body"><b>Content</b></label>
-  <textarea name="body" cols="50" rows="10"><%= data.body %></textarea>
+  <div class="form-image">
+    <label for="postImage"><b>Post Image <i>-Leave empty to keep current</i></b></label>
+    <input type="file" name="blogImage">
+  </div>
+
+  <div class="post-content"><label for="body"><b>Content</b></label>
+    <textarea name="body" cols="50" rows="10"><%= data.body %></textarea>
+  </div>
 
   <input type="submit" value="Update" class="btn">
 
