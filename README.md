@@ -1,9 +1,30 @@
-Steps to run the File:
-1. Download the project as a ZIP or clone it using Git:
-    git clone https://github.com/Aartiarya18/nodejs-assignmente.git
-2. Open the Folder and run the following command:
-    npm run dev
-3. Create a .env file in the root folder, containing the following inputs:
-    JWT_SECRET=yourSecretKey
-    MONGODB_URI=yourMongoDBConnectionString
-4. You can run it on your localhost.
+Steps to Run the File:
+
+Download the Project:
+
+Download the project as a ZIP file or clone it using Git with the following command:
+
+git clone https://github.com/Aartiarya18/nodejs-assignmente.git
+
+
+
+Open the folder containing the project.
+
+
+
+Install Dependencies:
+
+
+npm install
+
+
+
+I've already shared the .env file, simply run the application with:
+
+npm run dev
+
+
+You can now run the application on your localhost.
+
+
+If you encounter any issues or have further questions, feel free to reach out!
