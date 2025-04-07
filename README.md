@@ -1,6 +1,4 @@
-Steps to Run the File:
-
-Download the Project:
+Steps to Run the Project:
 
 Download the project as a ZIP file or clone it using Git with the following command:
 
